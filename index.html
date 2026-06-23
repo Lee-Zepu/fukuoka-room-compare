@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>租房看房对比 - 六套候选</title>
+  <style>
+    :root {
+      --bg: #f5f7f5;
+      --ink: #202523;
+      --muted: #66716d;
+      --line: #d8dfda;
+      --panel: #ffffff;
+      --panel-2: #edf4ef;
+      --green: #2d7353;
+      --red: #b84036;
+      --amber: #95620d;
+      --shadow: 0 16px 40px rgba(32, 37, 35, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "Noto Sans JP", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    main {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 28px 18px 56px;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .updated {
+      min-width: 230px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0 22px;
+    }
+
+    .metric {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      min-height: 108px;
+      box-shadow: var(--shadow);
+    }
+
+    .metric small {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 12px 0 22px;
+    }
+
+    .control {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 8px;
+      padding: 8px 10px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .control input { accent-color: var(--green); }
+
+    .section {
+      margin-top: 22px;
+      padding-top: 4px;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin: 18px 0 12px;
+      letter-spacing: 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(230px, 1fr));
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .card {
+      min-width: 230px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .image {
+      height: 146px;
+      background: #e7eee9;
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-body {
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .rank {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--panel-2);
+      color: var(--green);
+      font-weight: 800;
+      margin-right: 7px;
+    }
+
+    .name {
+      font-weight: 800;
+      font-size: 17px;
+      line-height: 1.25;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 13px;
+      min-height: 40px;
+    }
+
+    .money {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .money div {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px;
+      background: #fbfcfb;
+    }
+
+    .money small {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .money strong { font-size: 17px; }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .badge {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 8px;
+      color: var(--muted);
+      font-size: 12px;
+      background: #fbfcfb;
+      white-space: nowrap;
+    }
+
+    .badge.good { border-color: #a7c8b5; color: var(--green); background: #f1f8f3; }
+    .badge.warn { border-color: #d9bd7f; color: var(--amber); background: #fff8e7; }
+    .badge.risk { border-color: #ddb0aa; color: var(--red); background: #fff3f1; }
+
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      min-width: 1020px;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+    }
+
+    th:last-child, td:last-child { border-right: 0; }
+    tr:last-child td { border-bottom: 0; }
+
+    thead th {
+      background: #e7efe9;
+      color: #1f4736;
+    }
+
+    tbody th {
+      width: 150px;
+      background: #f6faf7;
+      color: #2f4b40;
+      font-weight: 800;
+    }
+
+    .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .muted { color: var(--muted); }
+    .good-text { color: var(--green); font-weight: 700; }
+    .warn-text { color: var(--amber); font-weight: 700; }
+    .risk-text { color: var(--red); font-weight: 700; }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: 14px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel h3 {
+      margin: 0 0 10px;
+      font-size: 17px;
+    }
+
+    .decision {
+      display: grid;
+      gap: 10px;
+    }
+
+    .decision-row {
+      display: grid;
+      grid-template-columns: 115px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .decision-row:last-child { border-bottom: 0; }
+
+    .label {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 9px;
+    }
+
+    .list li {
+      padding-left: 16px;
+      position: relative;
+      color: var(--muted);
+    }
+
+    .list li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+    }
+
+    .small-note {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    footer {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 920px) {
+      .topbar, .split { grid-template-columns: 1fr; }
+      .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .cards { grid-template-columns: repeat(4, minmax(230px, 1fr)); }
+      .updated { min-width: 0; }
+    }
+
+    @media (max-width: 560px) {
+      main { padding-inline: 12px; }
+      .summary-grid { grid-template-columns: 1fr; }
+      .money { grid-template-columns: 1fr; }
+      .decision-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="topbar">
+      <div>
+        <h1>福冈租房六套候选对比</h1>
+        <div class="subtitle">
+          当前讨论范围：クロスステージ笹丘 306、リファレンス東公園II 508、ノアーズアーク博多駅前 305、ダイナコートスタシオン博多、澄川ビル 301、ラ・レジダンス・ド・レーヌ 715。费用按截图中明示项目和常见签约口径估算，最终以中介出的初期费用见积书为准。
+        </div>
+      </div>
+      <div class="updated">
+        <strong>默认口径</strong><br>
+        月费不含日常电费/燃气费；初期费默认计入仲介手数料。更新时间：2026-06-23。
+      </div>
+    </div>
+
+    <section class="summary-grid" aria-label="quick summary">
+      <div class="metric">
+        <small>综合更推荐</small>
+        <strong>クロスステージ</strong>
+        <span>24.8㎡、月费约5.27万；只要能接受位置，它最划算。</span>
+      </div>
+      <div class="metric">
+        <small>市中心均衡</small>
+        <strong>ダイナコート</strong>
+        <span>博多步行6分，23.87㎡，但隐藏月费较多。</span>
+      </div>
+      <div class="metric">
+        <small>面积最大</small>
+        <strong>澄川ビル</strong>
+        <span>32.25㎡，中洲川端5分；旧楼状态要实地确认。</span>
+      </div>
+      <div class="metric">
+        <small>交通更省心</small>
+        <strong>リファレンス</strong>
+        <span>千代県庁口3分、网络免费；但月费最高。</span>
+      </div>
+    </section>
+
+    <div class="controls">
+      <label class="control"><input type="checkbox" id="brokerToggle" checked> 初期费计入仲介手数料</label>
+      <label class="control"><input type="checkbox" id="internetToggle"> 对未写网络免费的房子，月费加4,000円网络费</label>
+    </div>
+
+    <section class="section">
+      <h2>推荐卡片</h2>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <section class="section">
+      <h2>横向对比表</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>比较项</th>
+              <th>クロスステージ笹丘</th>
+              <th>リファレンス東公園II</th>
+              <th>ノアーズアーク 305</th>
+              <th>ダイナコート</th>
+              <th>澄川ビル 301</th>
+              <th>ラ・レジダンス 715</th>
+            </tr>
+          </thead>
+          <tbody id="compareBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section split">
+      <div class="panel">
+        <h2>我的选择逻辑</h2>
+        <div class="decision">
+          <div class="decision-row">
+            <div class="label">第一候选</div>
+            <div><strong>クロスステージ笹丘</strong>。在六套里月费最低、面积也大，性价比最强。关键只剩一个问题：六本松步行15分这件事你能不能接受。</div>
+          </div>
+          <div class="decision-row">
+            <div class="label">市中心均衡</div>
+            <div><strong>ダイナコートスタシオン博多</strong>。博多站步行6分、23.87㎡、2001年，位置和楼龄都不错。缺点是隐藏月额项多，实际月费会到6.3万左右。</div>
+          </div>
+          <div class="decision-row">
+            <div class="label">空间优先</div>
+            <div><strong>澄川ビル 301</strong>。32.25㎡非常有吸引力，位置也好。风险是築38年、和室、旧楼水回り和隔音要实地确认。</div>
+          </div>
+          <div class="decision-row">
+            <div class="label">交通优先</div>
+            <div><strong>リファレンス東公園II</strong>。千代県庁口步行3分、网络免费、管理看起来更稳；学生保证费优惠后初期费更清楚，主要压力变成每月约6.83万。</div>
+          </div>
+          <div class="decision-row">
+            <div class="label">低月费备选</div>
+            <div><strong>ラ・レジダンス・ド・レーヌ</strong>。月费最低、春吉位置方便，但19.07㎡偏小，适合把成本和市中心便利放在前面。</div>
+          </div>
+          <div class="decision-row">
+            <div class="label">轻装入住</div>
+            <div><strong>ノアーズアーク博多駅前 305</strong>。家具家电付是优势，但面积18.48㎡，实际月费约6.0万以上，长期住性价比不如ダイナコート。</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h2>看房时必问</h2>
+        <ul class="list">
+          <li>保证会社到底用哪个方案：初回50%、100%、月额1.5%或月额固定，差额很大。</li>
+          <li>ダイナコート的浄水器、安心サポート、諸経費是否必须加入。</li>
+          <li>クロスステージ的通勤路线是否真的能接受，尤其雨天和夜间回家。</li>
+          <li>リファレンス的水道费、くらしーど、町费、口座振替费是否全部必收。</li>
+          <li>澄川ビル的水回り、和室湿气、虫、排水味、墙体隔音和空调年式。</li>
+          <li>ラ・レジダンス是否室内有洗衣机置场；截图备注说室内没有洗衣机置场。</li>
+          <li>ノアーズ家具家电损坏责任、退去时是否需要原样返还，以及网络是否另办。</li>
+          <li>退去清扫费和エアコン清掃费是签约时收还是退去时收。</li>
+        </ul>
+        <p class="small-note">这四套都不是“广告月租=真实月费”。隐藏月额项和保证公司方案一定要让中介写进见积书。</p>
+      </aside>
+    </section>
+
+    <footer>
+      注：页面中的初期费和12个月支出是为了横向比较，不等于最终账单。截图中看不清或未明示的项目按保守估算处理。
+    </footer>
+  </main>
+
+  <script>
+    const homes = [
+      {
+        id: "cross",
+        rank: 1,
+        name: "クロスステージ笹丘 306",
+        image: "assets/cross_stage_sasaoka.png",
+        tagline: "月费最低且24.8㎡，性价比强；核心代价是离地铁远。",
+        rent: 45000,
+        management: 6000,
+        monthlyItems: [
+          ["町会费", 300],
+          ["安心サポート", 880],
+          ["保证月额", 550]
+        ],
+        brokerFee: 49500,
+        initialBase: 183730,
+        initialNote: "含首月、礼金、保证、保险、钥匙、消毒；默认另加仲介费。",
+        area: "24.8㎡",
+        station: "六本松步行15分 / 桜坂步行23分",
+        age: "1998年3月，约28年",
+        floor: "3楼 / 约6楼建",
+        direction: "东向",
+        internet: "未写免费",
+        depositGift: "敷0 / 礼1个月",
+        moveIn: "相談，广告写居住中",
+        exitCost: "退去清扫55,000円；保证更新10,000円/年",
+        strengths: ["24.8㎡", "月费约5.27万", "自动锁", "电梯"],
+        risks: ["离地铁远", "网络可能另办", "礼金1个月", "退去清扫高"]
+      },
+      {
+        id: "reference",
+        rank: 5,
+        name: "リファレンス東公園II 508",
+        image: "assets/reference_higashi_koen.png",
+        tagline: "站近、网络免费、楼体正规；固定月费最高。",
+        rent: 60000,
+        management: 3000,
+        monthlyItems: [
+          ["水道费", 3300],
+          ["くらしーど", 1100],
+          ["町会费", 500],
+          ["口座振替", 400]
+        ],
+        brokerFee: 66000,
+        initialBase: 138300,
+        initialStudentExtra: 15000,
+        initialNormalExtra: 15000,
+        initialNote: "按学生プラン估算：基础含首月、保险、钥匙、アイテムセット、学生保证费约15,000；默认另加仲介费。",
+        area: "21.37㎡",
+        station: "千代県庁口步行3分 / 呉服町步行8分",
+        age: "1992年6月，约34年",
+        floor: "5楼 / 13楼建",
+        direction: "南东向",
+        internet: "免费",
+        depositGift: "敷0 / 礼0",
+        moveIn: "相談，广告写居住中",
+        exitCost: "退去清扫38,500円；更新事务22,000円",
+        strengths: ["站近", "网络免费", "敷礼0", "南东向"],
+        risks: ["月费6.83万", "アイテムセット3万", "面积一般"]
+      },
+      {
+        id: "noah305",
+        rank: 6,
+        name: "ノアーズアーク博多駅前 305",
+        image: "assets/noahs_ark_305.jpeg",
+        tagline: "家具家电付，轻装入住方便；但18.48㎡偏小。",
+        rent: 50000,
+        management: 7000,
+        monthlyItems: [
+          ["水道费", 3300]
+        ],
+        variableMonthly: [0, 1500],
+        brokerFee: 55000,
+        initialBase: 153250,
+        initialHigh: 183400,
+        initialNote: "含首月、钥匙25,300、事务16,500、保险21,000、保证初回50%-100%；默认另加仲介费。",
+        area: "18.48㎡",
+        station: "博多站步行9分 / 祇园站步行4分",
+        age: "1990年9月，约35年",
+        floor: "3楼 / 9楼建",
+        direction: "北东向",
+        internet: "未写免费",
+        depositGift: "敷0 / 礼0",
+        moveIn: "即时",
+        exitCost: "退去清扫27,500円 + 空调清扫16,500円",
+        strengths: ["家具家电付", "敷礼0", "即入居", "オートロック"],
+        risks: ["18.48㎡", "月费不低", "1990年築", "保证方案复杂"]
+      },
+      {
+        id: "dynacourt",
+        rank: 2,
+        name: "ダイナコートスタシオン博多",
+        image: "assets/dynacourt_station_hakata.jpeg",
+        tagline: "博多步行6分，23.87㎡，位置和楼龄都比较平衡。",
+        rent: 55000,
+        management: 0,
+        monthlyItems: [
+          ["水道费", 2200],
+          ["安心サポート", 1100],
+          ["浄水器", 1550],
+          ["町费", 550],
+          ["諸経費", 2200],
+          ["保证月额约1.5%", 940]
+        ],
+        brokerFee: 60500,
+        initialBase: 143800,
+        initialHigh: 163000,
+        initialNote: "含首月、保证初回估算、钥匙19,800、保险18,000、消毒11,000；默认另加仲介费。",
+        area: "23.87㎡",
+        station: "博多站步行6分 / 櫛田神社前步行15分",
+        age: "2001年3月，约26年",
+        floor: "2楼 / 9楼建",
+        direction: "南西向",
+        internet: "未写免费",
+        depositGift: "敷0 / 礼0",
+        moveIn: "相談，空室",
+        exitCost: "退去清扫38,500円 + 空调清扫16,500円",
+        strengths: ["博多6分", "23.87㎡", "2001年", "バストイレ別"],
+        risks: ["隐藏月费多", "网络可能另办", "2楼", "保証月额"]
+      },
+      {
+        id: "sumikawa",
+        rank: 3,
+        name: "澄川ビル 301",
+        image: "assets/sumikawa_building_301.jpeg",
+        tagline: "32.25㎡最大，中洲川端5分；旧楼和和室要现场确认。",
+        rent: 56000,
+        management: 3000,
+        monthlyItems: [
+          ["あんしんサポート24", 1430]
+        ],
+        brokerFee: 61600,
+        initialBase: 130000,
+        initialHigh: 170000,
+        initialNote: "含首月、消毒25,300、保险/保证等未明示项目按区间估算；默认另加仲介费。",
+        area: "32.25㎡",
+        station: "中洲川端步行5分 / 呉服町步行11分",
+        age: "1988年8月，约38年",
+        floor: "3楼 / 7楼建",
+        direction: "南东向",
+        internet: "未写免费",
+        depositGift: "敷0 / 礼0",
+        moveIn: "即时",
+        exitCost: "退去费未明示",
+        strengths: ["32.25㎡", "中洲川端5分", "即入居", "敷礼0"],
+        risks: ["築38年", "和室", "旧楼水回り", "初期明细不足"]
+      },
+      {
+        id: "reine",
+        rank: 4,
+        name: "ラ・レジダンス・ド・レーヌ 715",
+        image: "assets/la_residence_reine_715.jpeg",
+        tagline: "春吉，月费相对低；但19.07㎡，室内洗衣机置场要注意。",
+        rent: 51000,
+        management: 3500,
+        monthlyItems: [
+          ["水道费", 2500],
+          ["月额费用", 1210]
+        ],
+        brokerFee: 56100,
+        initialBase: 161600,
+        initialHigh: 176000,
+        initialNote: "含首月、保证初回50%估算、钥匙19,800、室内清扫33,000、保险估算；默认另加仲介费。",
+        area: "19.07㎡",
+        station: "渡辺通步行8分 / 天神南步行9分",
+        age: "1991年6月，约36年",
+        floor: "7楼 / 13楼建",
+        direction: "南西向",
+        internet: "未写免费",
+        depositGift: "敷0 / 礼0",
+        moveIn: "即时",
+        exitCost: "室内清扫33,000円；更新事务16,500円/2年",
+        strengths: ["月费最低", "7楼", "春吉", "敷礼0"],
+        risks: ["19.07㎡", "室内洗衣机位疑似无", "築36年", "清扫费初期收"]
+      }
+    ];
+
+    const yen = (value) => {
+      if (typeof value !== "number") return value;
+      return value.toLocaleString("ja-JP") + "円";
+    };
+
+    const brokerToggle = document.querySelector("#brokerToggle");
+    const internetToggle = document.querySelector("#internetToggle");
+
+    function monthlyRange(home) {
+      const base = home.rent + home.management + home.monthlyItems.reduce((sum, item) => sum + item[1], 0);
+      const internetExtra = internetToggle.checked && home.internet !== "免费" ? 4000 : 0;
+      const variable = home.variableMonthly || [0, 0];
+      return [base + internetExtra + variable[0], base + internetExtra + variable[1]];
+    }
+
+    function initialRange(home) {
+      let low = home.initialBase;
+      let high = home.initialHigh || home.initialBase;
+      if (home.id === "reference") {
+        low += home.initialStudentExtra;
+        high += home.initialNormalExtra;
+      }
+      if (brokerToggle.checked) {
+        low += home.brokerFee;
+        high += home.brokerFee;
+      }
+      return [low, high];
+    }
+
+    function rangeText(low, high) {
+      if (low === high) return yen(low);
+      return yen(low) + " - " + yen(high);
+    }
+
+    function renderCards() {
+      const cards = document.querySelector("#cards");
+      cards.innerHTML = homes
+        .slice()
+        .sort((a, b) => a.rank - b.rank)
+        .map((home) => {
+          const [initLow, initHigh] = initialRange(home);
+          const [monthLow, monthHigh] = monthlyRange(home);
+          const badges = [
+            ...home.strengths.map((text) => `<span class="badge good">${text}</span>`),
+            ...home.risks.map((text) => `<span class="badge risk">${text}</span>`)
+          ].join("");
+
+          return `
+            <article class="card">
+              <div class="image"><img src="${home.image}" alt="${home.name}"></div>
+              <div class="card-body">
+                <div class="name"><span class="rank">${home.rank}</span>${home.name}</div>
+                <div class="tagline">${home.tagline}</div>
+                <div class="money">
+                  <div><small>每月固定</small><strong>${rangeText(monthLow, monthHigh)}</strong></div>
+                  <div><small>初期费估算</small><strong>${rangeText(initLow, initHigh)}</strong></div>
+                </div>
+                <div class="badges">${badges}</div>
+              </div>
+            </article>
+          `;
+        })
+        .join("");
+    }
+
+    function cellFor(home, type) {
+      const [initLow, initHigh] = initialRange(home);
+      const [monthLow, monthHigh] = monthlyRange(home);
+      const yearLow = initLow + monthLow * 11;
+      const yearHigh = initHigh + monthHigh * 11;
+
+      const monthlyLines = [
+        `房租 ${yen(home.rent)}`,
+        `管理/共益 ${yen(home.management)}`,
+        ...home.monthlyItems.map(([name, value]) => `${name} ${yen(value)}`)
+      ];
+      if (home.variableMonthly) monthlyLines.push("保证月额因方案变动");
+      if (internetToggle.checked && home.internet !== "免费") monthlyLines.push("网络估算 4,000円");
+
+      switch (type) {
+        case "monthly":
+          return `<strong class="num">${rangeText(monthLow, monthHigh)}</strong><br><span class="muted">${monthlyLines.join(" / ")}</span>`;
+        case "initial":
+          return `<strong class="num">${rangeText(initLow, initHigh)}</strong><br><span class="muted">${home.initialNote}</span>`;
+        case "year":
+          return `<span class="num">${rangeText(yearLow, yearHigh)}</span><br><span class="muted">初期费 + 后续11个月固定月费，不含日常水电燃气和退去费。</span>`;
+        case "basic":
+          return `${home.area}<br><span class="muted">${home.age}<br>${home.floor}，${home.direction}</span>`;
+        case "access":
+          return `${home.station}<br><span class="muted">入居：${home.moveIn}</span>`;
+        case "fees":
+          return `${home.depositGift}<br><span class="muted">${home.exitCost}</span>`;
+        case "internet":
+          return home.internet === "免费" ? `<span class="good-text">免费</span>` : `<span class="warn-text">${home.internet}</span>`;
+        case "verdict":
+          return verdict(home.id);
+        default:
+          return "";
+      }
+    }
+
+    function verdict(id) {
+      const map = {
+        cross: `<span class="good-text">综合第一</span><br><span class="muted">预算和空间都好，主要确认通勤是否可接受。</span>`,
+        reference: `<span class="warn-text">学生保证减压</span><br><span class="muted">初期费不再被普通保证费拉高，但月费仍明显偏高。</span>`,
+        noah305: `<span class="warn-text">轻装入住可以</span><br><span class="muted">家具家电省事，但面积和长期月费都不占优。</span>`,
+        dynacourt: `<span class="good-text">综合第一</span><br><span class="muted">位置、面积、楼龄较均衡，重点砍清隐藏月额项。</span>`,
+        sumikawa: `<span class="good-text">空间第一</span><br><span class="muted">如果旧楼状态能接受，这套住起来最不憋屈。</span>`,
+        reine: `<span class="warn-text">低月费备选</span><br><span class="muted">位置方便但面积小，洗衣机位和清扫费要确认。</span>`
+      };
+      return map[id];
+    }
+
+    function renderTable() {
+      const rows = [
+        ["每月固定费用", "monthly"],
+        ["初期费用估算", "initial"],
+        ["12个月现金支出", "year"],
+        ["面积/楼龄/楼层", "basic"],
+        ["交通/入住", "access"],
+        ["敷礼/退去费", "fees"],
+        ["网络", "internet"],
+        ["判断", "verdict"]
+      ];
+      document.querySelector("#compareBody").innerHTML = rows
+        .map(([label, type]) => `
+          <tr>
+            <th>${label}</th>
+            ${homes.map((home) => `<td>${cellFor(home, type)}</td>`).join("")}
+          </tr>
+        `)
+        .join("");
+    }
+
+    function renderAll() {
+      renderCards();
+      renderTable();
+    }
+
+    brokerToggle.addEventListener("change", renderAll);
+    internetToggle.addEventListener("change", renderAll);
+    renderAll();
+  </script>
+</body>
+</html>
