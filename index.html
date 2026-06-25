@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>租房看房对比 - 六套候选</title>
+  <title>租房看房对比 - 九套候选</title>
   <style>
     :root {
       --bg: #f5f7f5;
@@ -67,7 +67,7 @@
 
     .summary-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 12px;
       margin: 18px 0 22px;
     }
@@ -248,7 +248,7 @@
 
     table {
       width: 100%;
-      min-width: 1020px;
+      min-width: 1560px;
       border-collapse: collapse;
       font-size: 14px;
     }
@@ -378,9 +378,9 @@
   <main>
     <div class="topbar">
       <div>
-        <h1>福冈租房六套候选对比</h1>
+        <h1>福冈租房九套候选对比</h1>
         <div class="subtitle">
-          当前讨论范围：クロスステージ笹丘 306、リファレンス東公園II 508、ノアーズアーク博多駅前 305、ダイナコートスタシオン博多、澄川ビル 301、ラ・レジダンス・ド・レーヌ 715。费用按截图中明示项目和常见签约口径估算，最终以中介出的初期费用见积书为准。
+          当前讨论范围：クロスステージ笹丘 306、ダイナコートスタシオン博多、澄川ビル 301、ラ・レジダンス・ド・レーヌ 715、リファレンス東公園II 508、ノアーズアーク博多駅前 305、ピュアドームリブレ薬院 902、リリーフ天神東、サンメルト天神東。费用按截图中明示项目和常见签约口径估算，最终以中介出的初期费用见积书为准。
         </div>
       </div>
       <div class="updated">
@@ -410,6 +410,11 @@
         <strong>リファレンス</strong>
         <span>千代県庁口3分、网络免费；但月费最高。</span>
       </div>
+      <div class="metric">
+        <small>新追加里低月费</small>
+        <strong>サンメルト</strong>
+        <span>春吉、月费约5.18万；但18.06㎡和木造2楼要确认。</span>
+      </div>
     </section>
 
     <div class="controls">
@@ -427,15 +432,7 @@
       <div class="table-wrap">
         <table>
           <thead>
-            <tr>
-              <th>比较项</th>
-              <th>クロスステージ笹丘</th>
-              <th>リファレンス東公園II</th>
-              <th>ノアーズアーク 305</th>
-              <th>ダイナコート</th>
-              <th>澄川ビル 301</th>
-              <th>ラ・レジダンス 715</th>
-            </tr>
+            <tr id="compareHead"></tr>
           </thead>
           <tbody id="compareBody"></tbody>
         </table>
@@ -448,7 +445,7 @@
         <div class="decision">
           <div class="decision-row">
             <div class="label">第一候选</div>
-            <div><strong>クロスステージ笹丘</strong>。在六套里月费最低、面积也大，性价比最强。关键只剩一个问题：六本松步行15分这件事你能不能接受。</div>
+            <div><strong>クロスステージ笹丘</strong>。在九套里仍然是预算和面积最均衡的一套。关键只剩一个问题：六本松步行15分这件事你能不能接受。</div>
           </div>
           <div class="decision-row">
             <div class="label">市中心均衡</div>
@@ -464,7 +461,11 @@
           </div>
           <div class="decision-row">
             <div class="label">低月费备选</div>
-            <div><strong>ラ・レジダンス・ド・レーヌ</strong>。月费最低、春吉位置方便，但19.07㎡偏小，适合把成本和市中心便利放在前面。</div>
+            <div><strong>サンメルト天神東</strong>和<strong>ラ・レジダンス・ド・レーヌ</strong>。两套月费都低，位置也方便；サンメルト是木造2楼和18.06㎡，ラ・レジダンス是19.07㎡和洗衣机位要确认。</div>
+          </div>
+          <div class="decision-row">
+            <div class="label">新追加注意</div>
+            <div><strong>ピュアドームリブレ薬院</strong>位置不错但初期费很重；<strong>リリーフ天神東</strong>网络免费、22.95㎡，但築39年，适合看房时重点查水回り和隔音。</div>
           </div>
           <div class="decision-row">
             <div class="label">轻装入住</div>
@@ -483,9 +484,12 @@
           <li>澄川ビル的水回り、和室湿气、虫、排水味、墙体隔音和空调年式。</li>
           <li>ラ・レジダンス是否室内有洗衣机置场；截图备注说室内没有洗衣机置场。</li>
           <li>ノアーズ家具家电损坏责任、退去时是否需要原样返还，以及网络是否另办。</li>
+          <li>ピュアドームリブレ薬院的クリーニング代、24小时サポート、抗菌代是否都必须签约时支付。</li>
+          <li>リリーフ天神東的火灾保险800円/月、くらシード、町会费是否全部必收。</li>
+          <li>サンメルト天神東的トマトパック52,800円和防虫・除菌・エアコン洗浄29,700円能否砍掉。</li>
           <li>退去清扫费和エアコン清掃费是签约时收还是退去时收。</li>
         </ul>
-        <p class="small-note">这四套都不是“广告月租=真实月费”。隐藏月额项和保证公司方案一定要让中介写进见积书。</p>
+        <p class="small-note">这些房源都不是“广告月租=真实月费”。隐藏月额项和保证公司方案一定要让中介写进见积书。</p>
       </aside>
     </section>
 
@@ -526,7 +530,7 @@
       },
       {
         id: "reference",
-        rank: 5,
+        rank: 7,
         name: "リファレンス東公園II 508",
         image: "assets/reference_higashi_koen.png",
         tagline: "站近、网络免费、楼体正规；固定月费最高。",
@@ -557,7 +561,7 @@
       },
       {
         id: "noah305",
-        rank: 6,
+        rank: 8,
         name: "ノアーズアーク博多駅前 305",
         image: "assets/noahs_ark_305.jpeg",
         tagline: "家具家电付，轻装入住方便；但18.48㎡偏小。",
@@ -644,7 +648,7 @@
       },
       {
         id: "reine",
-        rank: 4,
+        rank: 6,
         name: "ラ・レジダンス・ド・レーヌ 715",
         image: "assets/la_residence_reine_715.jpeg",
         tagline: "春吉，月费相对低；但19.07㎡，室内洗衣机置场要注意。",
@@ -669,6 +673,90 @@
         exitCost: "室内清扫33,000円；更新事务16,500円/2年",
         strengths: ["月费最低", "7楼", "春吉", "敷礼0"],
         risks: ["19.07㎡", "室内洗衣机位疑似无", "築36年", "清扫费初期收"]
+      },
+      {
+        id: "relief",
+        rank: 4,
+        name: "リリーフ天神東",
+        image: "assets/relief_tenjin_higashi.png",
+        tagline: "対馬小路、22.95㎡、网络免费；築39年但月费还算压得住。",
+        rent: 52000,
+        management: 5000,
+        monthlyItems: [
+          ["くらシード24M", 880],
+          ["町会费", 500],
+          ["火灾保险", 800]
+        ],
+        brokerFee: 57200,
+        initialBase: 141900,
+        initialHigh: 172000,
+        initialNote: "含首月、保证初回约50%、钥匙17,600、消毒16,500；保险月额800。其他未明示项目按区间估算；默认另加仲介费。",
+        area: "22.95㎡",
+        station: "中洲川端步行8分 / 呉服町步行11分 / 天神步行15分",
+        age: "1988年4月，约39年",
+        floor: "7楼 / 9楼建",
+        direction: "西向",
+        internet: "免费",
+        depositGift: "敷0 / 礼0",
+        moveIn: "2026年8月中旬",
+        exitCost: "钥匙17,600円；消毒16,500円；保证更新10,000円/年",
+        strengths: ["22.95㎡", "网络免费", "7楼", "敷礼0"],
+        risks: ["築39年", "西向", "水回り要看", "月额项多"]
+      },
+      {
+        id: "sunmelt",
+        rank: 5,
+        name: "サンメルト天神東 201",
+        image: "assets/sunmelt_tenjin_higashi.png",
+        tagline: "春吉、月费低、ロフト付；但18.06㎡、木造2楼、初期附加项重。",
+        rent: 46000,
+        management: 3000,
+        monthlyItems: [
+          ["24时间サポート", 990],
+          ["町会费", 350],
+          ["补偿付带费", 800],
+          ["ケーブルTV", 660]
+        ],
+        brokerFee: 50600,
+        initialBase: 178300,
+        initialNote: "含首月、室内清扫44,000、トマトパック52,800、防虫除菌エアコン洗浄29,700；住宅保险金额未明示，默认另加仲介费。",
+        area: "18.06㎡",
+        station: "櫛田神社前步行9分 / 渡辺通步行11分 / 天神南步行12分",
+        age: "2003年11月，约23年",
+        floor: "2楼 / 2楼建",
+        direction: "南向",
+        internet: "未写免费",
+        depositGift: "敷0 / 礼0",
+        moveIn: "2026年7月下旬",
+        exitCost: "室内清扫44,000円；トマトパック52,800円；防虫除菌エアコン洗浄29,700円",
+        strengths: ["月费约5.18万", "春吉", "ロフト", "南向"],
+        risks: ["18.06㎡", "木造2楼", "初期附加项重", "网络可能另办"]
+      },
+      {
+        id: "pure",
+        rank: 9,
+        name: "ピュアドームリブレ薬院 902",
+        image: "assets/pure_dome_libre_yakuin.png",
+        tagline: "薬院大通4分、9楼西向；但礼金1个月和签约时费用很重。",
+        rent: 55000,
+        management: 5000,
+        monthlyItems: [
+          ["引落手数料", 330]
+        ],
+        brokerFee: 60500,
+        initialBase: 283000,
+        initialNote: "含首月、礼金1个月、保证初回50%、保险22,000、钥匙33,000、清扫50,000、抗菌16,500、24小时サポート16,500；默认另加仲介费。",
+        area: "19.52㎡",
+        station: "薬院大通步行4分 / 薬院步行9分 / 赤坂步行14分",
+        age: "1999年5月，约27年",
+        floor: "9楼 / 10楼建",
+        direction: "西向",
+        internet: "未写免费",
+        depositGift: "敷0 / 礼1个月",
+        moveIn: "2026年8月下旬",
+        exitCost: "クリーニング50,000円；更新料新賃料1个月；保证更新15,000円/年",
+        strengths: ["薬院大通4分", "9楼", "1999年", "バストイレ別"],
+        risks: ["初期费很高", "19.52㎡", "礼金1个月", "签约附加项多"]
       }
     ];
 
@@ -679,6 +767,10 @@
 
     const brokerToggle = document.querySelector("#brokerToggle");
     const internetToggle = document.querySelector("#internetToggle");
+
+    function orderedHomes() {
+      return homes.slice().sort((a, b) => a.rank - b.rank);
+    }
 
     function monthlyRange(home) {
       const base = home.rent + home.management + home.monthlyItems.reduce((sum, item) => sum + item[1], 0);
@@ -708,9 +800,7 @@
 
     function renderCards() {
       const cards = document.querySelector("#cards");
-      cards.innerHTML = homes
-        .slice()
-        .sort((a, b) => a.rank - b.rank)
+      cards.innerHTML = orderedHomes()
         .map((home) => {
           const [initLow, initHigh] = initialRange(home);
           const [monthLow, monthHigh] = monthlyRange(home);
@@ -780,12 +870,16 @@
         noah305: `<span class="warn-text">轻装入住可以</span><br><span class="muted">家具家电省事，但面积和长期月费都不占优。</span>`,
         dynacourt: `<span class="good-text">综合第一</span><br><span class="muted">位置、面积、楼龄较均衡，重点砍清隐藏月额项。</span>`,
         sumikawa: `<span class="good-text">空间第一</span><br><span class="muted">如果旧楼状态能接受，这套住起来最不憋屈。</span>`,
-        reine: `<span class="warn-text">低月费备选</span><br><span class="muted">位置方便但面积小，洗衣机位和清扫费要确认。</span>`
+        reine: `<span class="warn-text">低月费备选</span><br><span class="muted">位置方便但面积小，洗衣机位和清扫费要确认。</span>`,
+        relief: `<span class="good-text">新追加中位</span><br><span class="muted">网络免费和面积不错，主要看旧楼状态。</span>`,
+        sunmelt: `<span class="warn-text">低月费但小</span><br><span class="muted">月费漂亮，木造2楼和初期附加项要谨慎。</span>`,
+        pure: `<span class="risk-text">初期费过重</span><br><span class="muted">位置好，但签约时现金压力最大。</span>`
       };
       return map[id];
     }
 
     function renderTable() {
+      const sorted = orderedHomes();
       const rows = [
         ["每月固定费用", "monthly"],
         ["初期费用估算", "initial"],
@@ -796,11 +890,15 @@
         ["网络", "internet"],
         ["判断", "verdict"]
       ];
+      document.querySelector("#compareHead").innerHTML = `
+        <th>比较项</th>
+        ${sorted.map((home) => `<th>${home.name}</th>`).join("")}
+      `;
       document.querySelector("#compareBody").innerHTML = rows
         .map(([label, type]) => `
           <tr>
             <th>${label}</th>
-            ${homes.map((home) => `<td>${cellFor(home, type)}</td>`).join("")}
+            ${sorted.map((home) => `<td>${cellFor(home, type)}</td>`).join("")}
           </tr>
         `)
         .join("");
