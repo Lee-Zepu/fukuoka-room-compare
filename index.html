@@ -399,7 +399,7 @@
       </div>
       <div class="updated">
         <strong>默认口径</strong><br>
-        月费不含日常电费/燃气费；初期费默认计入1个月房租中介费。更新时间：2026-06-28。
+        月费不含日常电费/燃气费；初期费默认计入1个月房租中介费；未明示保证费时按房租50%-100%估算。更新时间：2026-06-28。
       </div>
     </div>
 
@@ -407,7 +407,7 @@
       <div class="metric">
         <small>综合更推荐</small>
         <strong>ジャパンハイツ</strong>
-        <span>六本松4分、27.75㎡，初期约14万，但保证费需确认。</span>
+        <span>六本松4分、27.75㎡，保证费按50%-100%后初期约16.5-18.9万。</span>
       </div>
       <div class="metric">
         <small>低月费候选</small>
@@ -459,7 +459,7 @@
         <div class="decision">
           <div class="decision-row">
             <div class="label">第一候选</div>
-            <div><strong>ジャパンハイツプリマベーラ六本松</strong>。六本松4分、27.75㎡、初期估算低，整体数字最好。唯一要追问的是保证会社是否真的没有额外初回费。</div>
+            <div><strong>ジャパンハイツプリマベーラ六本松</strong>。六本松4分、27.75㎡，即使按未明示保证费50%-100%来估，初期仍在可接受范围内。要追问的是保证会社最终费率和月额保证料。</div>
           </div>
           <div class="decision-row">
             <div class="label">低月费</div>
@@ -486,7 +486,7 @@
           <li>中介费是否真按房租1个月，不是1个月+税或总赁料基准。</li>
           <li>保证会社初回费到底是0%、30%、50%、60%、100%，以及月额保证费是否另收。</li>
           <li>外国籍时退去清扫费是否必须签约时前払い。</li>
-          <li>ジャパンハイツ是否真的没有保证会社初回费、火灾保险和钥匙费是否只按截图金额。</li>
+          <li>ジャパンハイツ虽然未明示保证费，先按50%-100%估；看房时确认最终费率和是否有月额保证料。</li>
           <li>朝日プラザ的礼金、保证最低额、退去时清扫费是否会被提前收。</li>
           <li>ロイヤル草香江、アクタス、レガリータ的月额小项目是否全部必收。</li>
           <li>イースト天神的消毒、钥匙、清扫、更新事务等费用能否减少。</li>
@@ -507,8 +507,8 @@
         id: "japan",
         rank: 1,
         name: "ジャパンハイツプリマベーラ六本松 401",
-        image: "",
-        tagline: "六本松4分、27.75㎡、8楼；费用少但保证会社条件未明示。",
+        image: "assets/japan_heights_primavera_ropponmatsu.png",
+        tagline: "六本松4分、27.75㎡、8楼；未明示保证费时按50%-100%保守估算。",
         rent: 48000,
         management: 3000,
         monthlyItems: [
@@ -517,8 +517,9 @@
           ["RFGサポート24", 1100]
         ],
         brokerFee: 48000,
-        initialBase: 93050,
-        initialNote: "含首月、火灾保险18,000、钥匙20,350；保证会社栏未明示，默认另加1个月房租中介费。",
+        initialBase: 117050,
+        initialHigh: 141050,
+        initialNote: "含首月、火灾保险18,000、钥匙20,350；保证会社栏未明示，保守追加房租50%-100%保证初回费；默认另加1个月房租中介费。",
         area: "27.75㎡",
         station: "六本松步行4分 / 別府步行10分 / 桜坂步行16分",
         age: "1989年7月，约37年",
@@ -529,13 +530,13 @@
         moveIn: "2026年7月23日",
         exitCost: "更新事务11,000円；火灾保险18,000円；钥匙20,350円",
         strengths: ["六本松4分", "27.75㎡", "8楼", "敷礼0"],
-        risks: ["保证费未明示", "1989年築", "照片少", "网络可能另办"]
+        risks: ["保证费未明示", "1989年築", "网络可能另办"]
       },
       {
         id: "asahi",
         rank: 2,
         name: "朝日プラザ六本松 203",
-        image: "",
+        image: "assets/asahi_plaza_ropponmatsu.png",
         tagline: "六本松3分、月费低；礼金1个月但总额仍可控。",
         rent: 40000,
         management: 2000,
@@ -562,7 +563,7 @@
         id: "royal",
         rank: 3,
         name: "ロイヤルコンフォート草香江II 403",
-        image: "",
+        image: "assets/royal_comfort_kusagae2.png",
         tagline: "草香江、22㎡、月费约5.3万；保证费50%-100%需确认。",
         rent: 48000,
         management: 3000,
@@ -590,7 +591,7 @@
         id: "actus",
         rank: 4,
         name: "アクタス博多 1006",
-        image: "",
+        image: "assets/actus_hakata_1006.png",
         tagline: "呉服町5分、10楼；但17.22㎡且月费偏高。",
         rent: 57000,
         management: 5000,
@@ -618,7 +619,7 @@
         id: "east",
         rank: 5,
         name: "イースト天神・STUDIO 204",
-        image: "",
+        image: "assets/east_tenjin_studio_204.png",
         tagline: "24.89㎡、南東向き；礼金1个月和退去清扫让初期不轻。",
         rent: 53000,
         management: 3000,
@@ -645,7 +646,7 @@
         id: "regarita",
         rank: 6,
         name: "レガリータ天神東II 403",
-        image: "",
+        image: "assets/regarita_tenjin_higashi2.png",
         tagline: "ロフト付き、天神東エリア；月额小费用多。",
         rent: 47500,
         management: 6500,
@@ -674,7 +675,7 @@
         id: "sakurazaka",
         rank: 7,
         name: "エスポワール桜坂 505",
-        image: "",
+        image: "assets/espoir_sakurazaka_505.png",
         tagline: "桜坂3分、月费最低档；17.67㎡和顶楼要接受。",
         rent: 44000,
         management: 3000,
@@ -805,7 +806,7 @@
 
     function verdict(id) {
       const map = {
-        japan: `<span class="good-text">综合第一</span><br><span class="muted">位置、面积、初期都好，先确认保证费。</span>`,
+        japan: `<span class="good-text">综合第一</span><br><span class="muted">位置和面积好；保证费按50%-100%估后仍可看。</span>`,
         asahi: `<span class="good-text">低月费</span><br><span class="muted">六本松3分很强，礼金和清扫费口径要问。</span>`,
         royal: `<span class="good-text">空间均衡</span><br><span class="muted">22㎡够住，保证费区间决定最终初期。</span>`,
         actus: `<span class="warn-text">位置强但贵</span><br><span class="muted">呉服町5分，高层；月费和面积不占优。</span>`,
