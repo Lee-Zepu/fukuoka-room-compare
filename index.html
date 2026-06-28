@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>租房看房对比 - 九套候选</title>
+  <title>租房看房对比 - 七套候选</title>
   <style>
     :root {
       --bg: #f5f7f5;
@@ -163,6 +163,20 @@
       height: 100%;
       object-fit: cover;
       display: block;
+    }
+
+    .image-placeholder {
+      height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 14px;
+      background:
+        linear-gradient(135deg, rgba(45, 115, 83, 0.16), rgba(149, 98, 13, 0.12)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.45) 0 14px, rgba(255,255,255,0.18) 14px 28px);
+      color: #244c3b;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.35;
     }
 
     .card-body {
@@ -378,47 +392,47 @@
   <main>
     <div class="topbar">
       <div>
-        <h1>福冈租房九套候选对比</h1>
+        <h1>福冈租房七套候选对比</h1>
         <div class="subtitle">
-          当前讨论范围：クロスステージ笹丘 306、ダイナコートスタシオン博多、澄川ビル 301、ラ・レジダンス・ド・レーヌ 715、リファレンス東公園II 508、ノアーズアーク博多駅前 305、ピュアドームリブレ薬院 902、リリーフ天神東、サンメルト天神東。费用按截图中明示项目和常见签约口径估算，最终以中介出的初期费用见积书为准。
+          当前讨论范围：ジャパンハイツプリマベーラ六本松、朝日プラザ六本松、ロイヤルコンフォート草香江II、アクタス博多、イースト天神・STUDIO、レガリータ天神東II、エスポワール桜坂。初期费统一按“中介费=1个月房租本体”估算，最终以中介出的初期费用见积书为准。
         </div>
       </div>
       <div class="updated">
         <strong>默认口径</strong><br>
-        月费不含日常电费/燃气费；初期费默认计入仲介手数料。更新时间：2026-06-23。
+        月费不含日常电费/燃气费；初期费默认计入1个月房租中介费。更新时间：2026-06-28。
       </div>
     </div>
 
     <section class="summary-grid" aria-label="quick summary">
       <div class="metric">
         <small>综合更推荐</small>
-        <strong>クロスステージ</strong>
-        <span>24.8㎡、月费约5.27万；只要能接受位置，它最划算。</span>
+        <strong>ジャパンハイツ</strong>
+        <span>六本松4分、27.75㎡，初期约14万，但保证费需确认。</span>
       </div>
       <div class="metric">
-        <small>市中心均衡</small>
-        <strong>ダイナコート</strong>
-        <span>博多步行6分，23.87㎡，但隐藏月费较多。</span>
+        <small>低月费候选</small>
+        <strong>朝日プラザ</strong>
+        <span>六本松3分，月费约4.29万，初期约19万上下。</span>
       </div>
       <div class="metric">
-        <small>面积最大</small>
-        <strong>澄川ビル</strong>
-        <span>32.25㎡，中洲川端5分；旧楼状态要实地确认。</span>
+        <small>空间优先</small>
+        <strong>ロイヤル草香江</strong>
+        <span>22㎡，月费约5.3万；保证费区间要问清。</span>
       </div>
       <div class="metric">
-        <small>交通更省心</small>
-        <strong>リファレンス</strong>
-        <span>千代県庁口3分、网络免费；但月费最高。</span>
+        <small>博多近但贵</small>
+        <strong>アクタス博多</strong>
+        <span>呉服町5分，高层；月费约6.6万，面积偏小。</span>
       </div>
       <div class="metric">
-        <small>新追加里低月费</small>
-        <strong>サンメルト</strong>
-        <span>春吉、月费约5.18万；但18.06㎡和木造2楼要确认。</span>
+        <small>初期偏重</small>
+        <strong>イースト天神</strong>
+        <span>24.89㎡不错，但礼金和清扫费让初期上到20万后半。</span>
       </div>
     </section>
 
     <div class="controls">
-      <label class="control"><input type="checkbox" id="brokerToggle" checked> 初期费计入仲介手数料</label>
+      <label class="control"><input type="checkbox" id="brokerToggle" checked> 初期费计入仲介手数料（1个月房租）</label>
       <label class="control"><input type="checkbox" id="internetToggle"> 对未写网络免费的房子，月费加4,000円网络费</label>
     </div>
 
@@ -445,31 +459,23 @@
         <div class="decision">
           <div class="decision-row">
             <div class="label">第一候选</div>
-            <div><strong>クロスステージ笹丘</strong>。在九套里仍然是预算和面积最均衡的一套。关键只剩一个问题：六本松步行15分这件事你能不能接受。</div>
+            <div><strong>ジャパンハイツプリマベーラ六本松</strong>。六本松4分、27.75㎡、初期估算低，整体数字最好。唯一要追问的是保证会社是否真的没有额外初回费。</div>
           </div>
           <div class="decision-row">
-            <div class="label">市中心均衡</div>
-            <div><strong>ダイナコートスタシオン博多</strong>。博多站步行6分、23.87㎡、2001年，位置和楼龄都不错。缺点是隐藏月额项多，实际月费会到6.3万左右。</div>
+            <div class="label">低月费</div>
+            <div><strong>朝日プラザ六本松</strong>是这 7 套里月费压力最小的一类：六本松3分、月费很低，初期也还能接受。</div>
           </div>
           <div class="decision-row">
             <div class="label">空间优先</div>
-            <div><strong>澄川ビル 301</strong>。32.25㎡非常有吸引力，位置也好。风险是築38年、和室、旧楼水回り和隔音要实地确认。</div>
+            <div><strong>ロイヤルコンフォート草香江II</strong>。22㎡、草香江、月费约5.3万，住起来不会太憋。重点确认保证费到底50%还是100%。</div>
           </div>
           <div class="decision-row">
-            <div class="label">交通优先</div>
-            <div><strong>リファレンス東公園II</strong>。千代県庁口步行3分、网络免费、管理看起来更稳；学生保证费优惠后初期费更清楚，主要压力变成每月约6.83万。</div>
+            <div class="label">谨慎看</div>
+            <div><strong>アクタス博多</strong>、<strong>イースト天神・STUDIO</strong>、<strong>レガリータ天神東II</strong>的初期或月费都不算轻，适合作为位置优先时的备选。</div>
           </div>
           <div class="decision-row">
-            <div class="label">低月费备选</div>
-            <div><strong>サンメルト天神東</strong>和<strong>ラ・レジダンス・ド・レーヌ</strong>。两套月费都低，位置也方便；サンメルト是木造2楼和18.06㎡，ラ・レジダンス是19.07㎡和洗衣机位要确认。</div>
-          </div>
-          <div class="decision-row">
-            <div class="label">新追加注意</div>
-            <div><strong>ピュアドームリブレ薬院</strong>位置不错但初期费很重；<strong>リリーフ天神東</strong>网络免费、22.95㎡，但築39年，适合看房时重点查水回り和隔音。</div>
-          </div>
-          <div class="decision-row">
-            <div class="label">轻装入住</div>
-            <div><strong>ノアーズアーク博多駅前 305</strong>。家具家电付是优势，但面积18.48㎡，实际月费约6.0万以上，长期住性价比不如ダイナコート。</div>
+            <div class="label">低初期</div>
+            <div><strong>エスポワール桜坂</strong>如果清扫费不签约时付，初期非常轻；即使清扫费前払い也约22万多，桜坂3分很有吸引力。</div>
           </div>
         </div>
       </div>
@@ -477,17 +483,14 @@
       <aside class="panel">
         <h2>看房时必问</h2>
         <ul class="list">
-          <li>保证会社到底用哪个方案：初回50%、100%、月额1.5%或月额固定，差额很大。</li>
-          <li>ダイナコート的浄水器、安心サポート、諸経費是否必须加入。</li>
-          <li>クロスステージ的通勤路线是否真的能接受，尤其雨天和夜间回家。</li>
-          <li>リファレンス的水道费、くらしーど、町费、口座振替费是否全部必收。</li>
-          <li>澄川ビル的水回り、和室湿气、虫、排水味、墙体隔音和空调年式。</li>
-          <li>ラ・レジダンス是否室内有洗衣机置场；截图备注说室内没有洗衣机置场。</li>
-          <li>ノアーズ家具家电损坏责任、退去时是否需要原样返还，以及网络是否另办。</li>
-          <li>ピュアドームリブレ薬院的クリーニング代、24小时サポート、抗菌代是否都必须签约时支付。</li>
-          <li>リリーフ天神東的火灾保险800円/月、くらシード、町会费是否全部必收。</li>
-          <li>サンメルト天神東的トマトパック52,800円和防虫・除菌・エアコン洗浄29,700円能否砍掉。</li>
-          <li>退去清扫费和エアコン清掃费是签约时收还是退去时收。</li>
+          <li>中介费是否真按房租1个月，不是1个月+税或总赁料基准。</li>
+          <li>保证会社初回费到底是0%、30%、50%、60%、100%，以及月额保证费是否另收。</li>
+          <li>外国籍时退去清扫费是否必须签约时前払い。</li>
+          <li>ジャパンハイツ是否真的没有保证会社初回费、火灾保险和钥匙费是否只按截图金额。</li>
+          <li>朝日プラザ的礼金、保证最低额、退去时清扫费是否会被提前收。</li>
+          <li>ロイヤル草香江、アクタス、レガリータ的月额小项目是否全部必收。</li>
+          <li>イースト天神的消毒、钥匙、清扫、更新事务等费用能否减少。</li>
+          <li>老楼水回り、排水味、虫、隔音、空调年式、洗衣机置场尺寸。</li>
         </ul>
         <p class="small-note">这些房源都不是“广告月租=真实月费”。隐藏月额项和保证公司方案一定要让中介写进见积书。</p>
       </aside>
@@ -501,262 +504,199 @@
   <script>
     const homes = [
       {
-        id: "cross",
+        id: "japan",
         rank: 1,
-        name: "クロスステージ笹丘 306",
-        image: "assets/cross_stage_sasaoka.png",
-        tagline: "月费最低且24.8㎡，性价比强；核心代价是离地铁远。",
-        rent: 45000,
-        management: 6000,
+        name: "ジャパンハイツプリマベーラ六本松 401",
+        image: "",
+        tagline: "六本松4分、27.75㎡、8楼；费用少但保证会社条件未明示。",
+        rent: 48000,
+        management: 3000,
+        monthlyItems: [
+          ["町费", 300],
+          ["定额水道料", 2300],
+          ["RFGサポート24", 1100]
+        ],
+        brokerFee: 48000,
+        initialBase: 93050,
+        initialNote: "含首月、火灾保险18,000、钥匙20,350；保证会社栏未明示，默认另加1个月房租中介费。",
+        area: "27.75㎡",
+        station: "六本松步行4分 / 別府步行10分 / 桜坂步行16分",
+        age: "1989年7月，约37年",
+        floor: "8楼 / 8楼建",
+        direction: "未明示",
+        internet: "未写免费",
+        depositGift: "敷0 / 礼0 / 保证金0",
+        moveIn: "2026年7月23日",
+        exitCost: "更新事务11,000円；火灾保险18,000円；钥匙20,350円",
+        strengths: ["六本松4分", "27.75㎡", "8楼", "敷礼0"],
+        risks: ["保证费未明示", "1989年築", "照片少", "网络可能另办"]
+      },
+      {
+        id: "asahi",
+        rank: 2,
+        name: "朝日プラザ六本松 203",
+        image: "",
+        tagline: "六本松3分、月费低；礼金1个月但总额仍可控。",
+        rent: 40000,
+        management: 2000,
+        monthlyItems: [
+          ["緊急サポート", 880]
+        ],
+        brokerFee: 40000,
+        initialBase: 147000,
+        initialHigh: 161000,
+        initialNote: "含首月、礼金1个月、保险/保证/清扫等截图项目按区间估算；默认另加1个月房租中介费。",
+        area: "约20㎡",
+        station: "六本松步行3分 / バス六本松步行2分",
+        age: "1987年10月，约39年",
+        floor: "2楼 / 8楼建",
+        direction: "北向",
+        internet: "未写免费",
+        depositGift: "敷0 / 礼1个月",
+        moveIn: "2026年7月11日退去予定",
+        exitCost: "退去清扫/短期解约金等需确认",
+        strengths: ["六本松3分", "月费低", "オートロック", "电梯"],
+        risks: ["礼金1个月", "北向", "築39年", "清扫费口径需确认"]
+      },
+      {
+        id: "royal",
+        rank: 3,
+        name: "ロイヤルコンフォート草香江II 403",
+        image: "",
+        tagline: "草香江、22㎡、月费约5.3万；保证费50%-100%需确认。",
+        rent: 48000,
+        management: 3000,
         monthlyItems: [
           ["町会费", 300],
-          ["安心サポート", 880],
-          ["保证月额", 550]
+          ["安心サポート", 1700]
         ],
-        brokerFee: 49500,
-        initialBase: 183730,
-        initialNote: "含首月、礼金、保证、保险、钥匙、消毒；默认另加仲介费。",
-        area: "24.8㎡",
-        station: "六本松步行15分 / 桜坂步行23分",
-        age: "1998年3月，约28年",
-        floor: "3楼 / 约6楼建",
-        direction: "东向",
-        internet: "未写免费",
-        depositGift: "敷0 / 礼1个月",
-        moveIn: "相談，广告写居住中",
-        exitCost: "退去清扫55,000円；保证更新10,000円/年",
-        strengths: ["24.8㎡", "月费约5.27万", "自动锁", "电梯"],
-        risks: ["离地铁远", "网络可能另办", "礼金1个月", "退去清扫高"]
-      },
-      {
-        id: "reference",
-        rank: 7,
-        name: "リファレンス東公園II 508",
-        image: "assets/reference_higashi_koen.png",
-        tagline: "站近、网络免费、楼体正规；固定月费最高。",
-        rent: 60000,
-        management: 3000,
-        monthlyItems: [
-          ["水道费", 3300],
-          ["くらしーど", 1100],
-          ["町会费", 500],
-          ["口座振替", 400]
-        ],
-        brokerFee: 66000,
-        initialBase: 138300,
-        initialStudentExtra: 15000,
-        initialNormalExtra: 15000,
-        initialNote: "按学生プラン估算：基础含首月、保险、钥匙、アイテムセット、学生保证费约15,000；默认另加仲介费。",
-        area: "21.37㎡",
-        station: "千代県庁口步行3分 / 呉服町步行8分",
-        age: "1992年6月，约34年",
-        floor: "5楼 / 13楼建",
-        direction: "南东向",
-        internet: "免费",
-        depositGift: "敷0 / 礼0",
-        moveIn: "相談，广告写居住中",
-        exitCost: "退去清扫38,500円；更新事务22,000円",
-        strengths: ["站近", "网络免费", "敷礼0", "南东向"],
-        risks: ["月费6.83万", "アイテムセット3万", "面积一般"]
-      },
-      {
-        id: "noah305",
-        rank: 8,
-        name: "ノアーズアーク博多駅前 305",
-        image: "assets/noahs_ark_305.jpeg",
-        tagline: "家具家电付，轻装入住方便；但18.48㎡偏小。",
-        rent: 50000,
-        management: 7000,
-        monthlyItems: [
-          ["水道费", 3300]
-        ],
-        variableMonthly: [0, 1500],
-        brokerFee: 55000,
-        initialBase: 153250,
-        initialHigh: 183400,
-        initialNote: "含首月、钥匙25,300、事务16,500、保险21,000、保证初回50%-100%；默认另加仲介费。",
-        area: "18.48㎡",
-        station: "博多站步行9分 / 祇园站步行4分",
-        age: "1990年9月，约35年",
-        floor: "3楼 / 9楼建",
-        direction: "北东向",
+        brokerFee: 48000,
+        initialBase: 155000,
+        initialHigh: 181000,
+        initialNote: "含首月、保证初回50%-100%、广告费/钥匙/清扫/事务等截图项目按区间估算；默认另加1个月房租中介费。",
+        area: "22㎡",
+        station: "六本松步行7分 / 唐人町步行20分",
+        age: "1989年4月，约37年",
+        floor: "4楼 / 5楼建",
+        direction: "未明示",
         internet: "未写免费",
         depositGift: "敷0 / 礼0",
-        moveIn: "即时",
-        exitCost: "退去清扫27,500円 + 空调清扫16,500円",
-        strengths: ["家具家电付", "敷礼0", "即入居", "オートロック"],
-        risks: ["18.48㎡", "月费不低", "1990年築", "保证方案复杂"]
+        moveIn: "相談",
+        exitCost: "清扫22,000円；短期解约金等需确认",
+        strengths: ["22㎡", "草香江", "月费约5.3万", "敷礼0"],
+        risks: ["保证费区间大", "築37年", "月额小项", "初期明细复杂"]
       },
       {
-        id: "dynacourt",
-        rank: 2,
-        name: "ダイナコートスタシオン博多",
-        image: "assets/dynacourt_station_hakata.jpeg",
-        tagline: "博多步行6分，23.87㎡，位置和楼龄都比较平衡。",
-        rent: 55000,
-        management: 0,
-        monthlyItems: [
-          ["水道费", 2200],
-          ["安心サポート", 1100],
-          ["浄水器", 1550],
-          ["町费", 550],
-          ["諸経費", 2200],
-          ["保证月额约1.5%", 940]
-        ],
-        brokerFee: 60500,
-        initialBase: 143800,
-        initialHigh: 163000,
-        initialNote: "含首月、保证初回估算、钥匙19,800、保险18,000、消毒11,000；默认另加仲介费。",
-        area: "23.87㎡",
-        station: "博多站步行6分 / 櫛田神社前步行15分",
-        age: "2001年3月，约26年",
-        floor: "2楼 / 9楼建",
-        direction: "南西向",
-        internet: "未写免费",
-        depositGift: "敷0 / 礼0",
-        moveIn: "相談，空室",
-        exitCost: "退去清扫38,500円 + 空调清扫16,500円",
-        strengths: ["博多6分", "23.87㎡", "2001年", "バストイレ別"],
-        risks: ["隐藏月费多", "网络可能另办", "2楼", "保証月额"]
-      },
-      {
-        id: "sumikawa",
-        rank: 3,
-        name: "澄川ビル 301",
-        image: "assets/sumikawa_building_301.jpeg",
-        tagline: "32.25㎡最大，中洲川端5分；旧楼和和室要现场确认。",
-        rent: 56000,
-        management: 3000,
-        monthlyItems: [
-          ["あんしんサポート24", 1430]
-        ],
-        brokerFee: 61600,
-        initialBase: 130000,
-        initialHigh: 170000,
-        initialNote: "含首月、消毒25,300、保险/保证等未明示项目按区间估算；默认另加仲介费。",
-        area: "32.25㎡",
-        station: "中洲川端步行5分 / 呉服町步行11分",
-        age: "1988年8月，约38年",
-        floor: "3楼 / 7楼建",
-        direction: "南东向",
-        internet: "未写免费",
-        depositGift: "敷0 / 礼0",
-        moveIn: "即时",
-        exitCost: "退去费未明示",
-        strengths: ["32.25㎡", "中洲川端5分", "即入居", "敷礼0"],
-        risks: ["築38年", "和室", "旧楼水回り", "初期明细不足"]
-      },
-      {
-        id: "reine",
-        rank: 6,
-        name: "ラ・レジダンス・ド・レーヌ 715",
-        image: "assets/la_residence_reine_715.jpeg",
-        tagline: "春吉，月费相对低；但19.07㎡，室内洗衣机置场要注意。",
-        rent: 51000,
-        management: 3500,
-        monthlyItems: [
-          ["水道费", 2500],
-          ["月额费用", 1210]
-        ],
-        brokerFee: 56100,
-        initialBase: 161600,
-        initialHigh: 176000,
-        initialNote: "含首月、保证初回50%估算、钥匙19,800、室内清扫33,000、保险估算；默认另加仲介费。",
-        area: "19.07㎡",
-        station: "渡辺通步行8分 / 天神南步行9分",
-        age: "1991年6月，约36年",
-        floor: "7楼 / 13楼建",
-        direction: "南西向",
-        internet: "未写免费",
-        depositGift: "敷0 / 礼0",
-        moveIn: "即时",
-        exitCost: "室内清扫33,000円；更新事务16,500円/2年",
-        strengths: ["月费最低", "7楼", "春吉", "敷礼0"],
-        risks: ["19.07㎡", "室内洗衣机位疑似无", "築36年", "清扫费初期收"]
-      },
-      {
-        id: "relief",
+        id: "actus",
         rank: 4,
-        name: "リリーフ天神東",
-        image: "assets/relief_tenjin_higashi.png",
-        tagline: "対馬小路、22.95㎡、网络免费；築39年但月费还算压得住。",
-        rent: 52000,
+        name: "アクタス博多 1006",
+        image: "",
+        tagline: "呉服町5分、10楼；但17.22㎡且月费偏高。",
+        rent: 57000,
         management: 5000,
         monthlyItems: [
-          ["くらシード24M", 880],
-          ["町会费", 500],
-          ["火灾保险", 800]
+          ["水町费", 3000],
+          ["24时间サポート", 1100]
         ],
-        brokerFee: 57200,
-        initialBase: 141900,
-        initialHigh: 172000,
-        initialNote: "含首月、保证初回约50%、钥匙17,600、消毒16,500；保险月额800。其他未明示项目按区间估算；默认另加仲介费。",
-        area: "22.95㎡",
-        station: "中洲川端步行8分 / 呉服町步行11分 / 天神步行15分",
-        age: "1988年4月，约39年",
-        floor: "7楼 / 9楼建",
-        direction: "西向",
-        internet: "免费",
-        depositGift: "敷0 / 礼0",
-        moveIn: "2026年8月中旬",
-        exitCost: "钥匙17,600円；消毒16,500円；保证更新10,000円/年",
-        strengths: ["22.95㎡", "网络免费", "7楼", "敷礼0"],
-        risks: ["築39年", "西向", "水回り要看", "月额项多"]
-      },
-      {
-        id: "sunmelt",
-        rank: 5,
-        name: "サンメルト天神東 201",
-        image: "assets/sunmelt_tenjin_higashi.png",
-        tagline: "春吉、月费低、ロフト付；但18.06㎡、木造2楼、初期附加项重。",
-        rent: 46000,
-        management: 3000,
-        monthlyItems: [
-          ["24时间サポート", 990],
-          ["町会费", 350],
-          ["补偿付带费", 800],
-          ["ケーブルTV", 660]
-        ],
-        brokerFee: 50600,
-        initialBase: 178300,
-        initialNote: "含首月、室内清扫44,000、トマトパック52,800、防虫除菌エアコン洗浄29,700；住宅保险金额未明示，默认另加仲介费。",
-        area: "18.06㎡",
-        station: "櫛田神社前步行9分 / 渡辺通步行11分 / 天神南步行12分",
-        age: "2003年11月，约23年",
-        floor: "2楼 / 2楼建",
-        direction: "南向",
-        internet: "未写免费",
-        depositGift: "敷0 / 礼0",
-        moveIn: "2026年7月下旬",
-        exitCost: "室内清扫44,000円；トマトパック52,800円；防虫除菌エアコン洗浄29,700円",
-        strengths: ["月费约5.18万", "春吉", "ロフト", "南向"],
-        risks: ["18.06㎡", "木造2楼", "初期附加项重", "网络可能另办"]
-      },
-      {
-        id: "pure",
-        rank: 9,
-        name: "ピュアドームリブレ薬院 902",
-        image: "assets/pure_dome_libre_yakuin.png",
-        tagline: "薬院大通4分、9楼西向；但礼金1个月和签约时费用很重。",
-        rent: 55000,
-        management: 5000,
-        monthlyItems: [
-          ["引落手数料", 330]
-        ],
-        brokerFee: 60500,
-        initialBase: 283000,
-        initialNote: "含首月、礼金1个月、保证初回50%、保险22,000、钥匙33,000、清扫50,000、抗菌16,500、24小时サポート16,500；默认另加仲介费。",
-        area: "19.52㎡",
-        station: "薬院大通步行4分 / 薬院步行9分 / 赤坂步行14分",
-        age: "1999年5月，约27年",
-        floor: "9楼 / 10楼建",
-        direction: "西向",
+        brokerFee: 57000,
+        initialBase: 185000,
+        initialHigh: 197000,
+        initialNote: "含首月、礼金1个月、保证/保险/钥匙等按截图估算；默认另加1个月房租中介费。",
+        area: "17.22㎡",
+        station: "呉服町步行5分",
+        age: "1998年11月，约28年",
+        floor: "10楼 / 11楼建",
+        direction: "未明示",
         internet: "未写免费",
         depositGift: "敷0 / 礼1个月",
-        moveIn: "2026年8月下旬",
-        exitCost: "クリーニング50,000円；更新料新賃料1个月；保证更新15,000円/年",
-        strengths: ["薬院大通4分", "9楼", "1999年", "バストイレ別"],
-        risks: ["初期费很高", "19.52㎡", "礼金1个月", "签约附加项多"]
+        moveIn: "未明示，空室",
+        exitCost: "更新料16,500円；水町费/月额サポート等需确认",
+        strengths: ["呉服町5分", "10楼", "1998年", "オートロック"],
+        risks: ["17.22㎡", "月费约6.61万", "礼金1个月", "初期偏高"]
+      },
+      {
+        id: "east",
+        rank: 5,
+        name: "イースト天神・STUDIO 204",
+        image: "",
+        tagline: "24.89㎡、南東向き；礼金1个月和退去清扫让初期不轻。",
+        rent: 53000,
+        management: 3000,
+        monthlyItems: [
+          ["水町费", 2800]
+        ],
+        brokerFee: 53000,
+        initialBase: 183000,
+        initialHigh: 199000,
+        initialNote: "含首月、礼金1个月、保证初回50%、钥匙/消毒/清扫等按截图估算；默认另加1个月房租中介费。",
+        area: "24.89㎡",
+        station: "中洲川端步行7分 / 呉服町步行12分",
+        age: "1998年3月，约28年",
+        floor: "2楼 / 7楼建",
+        direction: "南东向",
+        internet: "未写免费",
+        depositGift: "敷0 / 礼1个月",
+        moveIn: "相談，居住中",
+        exitCost: "退去清扫1ヶ月有；短期解约金あり",
+        strengths: ["24.89㎡", "南东向", "中洲川端7分", "独立洗面"],
+        risks: ["礼金1个月", "初期偏高", "2楼", "清扫费重"]
+      },
+      {
+        id: "regarita",
+        rank: 6,
+        name: "レガリータ天神東II 403",
+        image: "",
+        tagline: "ロフト付き、天神東エリア；月额小费用多。",
+        rent: 47500,
+        management: 6500,
+        monthlyItems: [
+          ["町会费", 300],
+          ["ライフセキュリティ24", 1991],
+          ["スマートロック月额", 1100]
+        ],
+        brokerFee: 47500,
+        initialBase: 107500,
+        initialHigh: 136500,
+        initialNote: "含首月、保証50%-100%、スマートロック設定20,000、事务手数料等按截图估算；默认另加1个月房租中介费。",
+        area: "19.65㎡",
+        station: "中洲川端步行12分 / 天神步行15分",
+        age: "2003年7月，约23年",
+        floor: "4楼 / 4楼建",
+        direction: "未明示",
+        internet: "未写免费",
+        depositGift: "敷0 / 礼0",
+        moveIn: "相談，居住中",
+        exitCost: "更新料19,400円；スマートロック相关费用需确认",
+        strengths: ["ロフト", "2003年", "敷礼0", "独立洗面"],
+        risks: ["月额小项多", "最上階", "19.65㎡", "中洲川端12分"]
+      },
+      {
+        id: "sakurazaka",
+        rank: 7,
+        name: "エスポワール桜坂 505",
+        image: "",
+        tagline: "桜坂3分、月费最低档；17.67㎡和顶楼要接受。",
+        rent: 44000,
+        management: 3000,
+        monthlyItems: [
+          ["月额保证", 940]
+        ],
+        variableMonthly: [0, 2700],
+        brokerFee: 44000,
+        initialBase: 124200,
+        initialHigh: 179200,
+        initialNote: "低位不含退去清扫前払い；高位含清扫55,000。另含首月、保证100%、钥匙27,500、保险2,700；默认另加1个月房租中介费。",
+        area: "17.67㎡",
+        station: "桜坂步行3分",
+        age: "1989年9月，约37年",
+        floor: "5楼 / 5楼建",
+        direction: "未明示",
+        internet: "未写免费",
+        depositGift: "敷0 / 礼0",
+        moveIn: "相談，建設中/空室",
+        exitCost: "室内清扫55,000円；外国籍时前払い可能性要确认",
+        strengths: ["桜坂3分", "月费低", "敷礼0", "初期轻"],
+        risks: ["17.67㎡", "顶楼", "築37年", "サポート费口径需确认"]
       }
     ];
 
@@ -811,7 +751,7 @@
 
           return `
             <article class="card">
-              <div class="image"><img src="${home.image}" alt="${home.name}"></div>
+              <div class="image">${home.image ? `<img src="${home.image}" alt="${home.name}">` : `<div class="image-placeholder">${home.name}<br>${home.area}</div>`}</div>
               <div class="card-body">
                 <div class="name"><span class="rank">${home.rank}</span>${home.name}</div>
                 <div class="tagline">${home.tagline}</div>
@@ -865,15 +805,13 @@
 
     function verdict(id) {
       const map = {
-        cross: `<span class="good-text">综合第一</span><br><span class="muted">预算和空间都好，主要确认通勤是否可接受。</span>`,
-        reference: `<span class="warn-text">学生保证减压</span><br><span class="muted">初期费不再被普通保证费拉高，但月费仍明显偏高。</span>`,
-        noah305: `<span class="warn-text">轻装入住可以</span><br><span class="muted">家具家电省事，但面积和长期月费都不占优。</span>`,
-        dynacourt: `<span class="good-text">综合第一</span><br><span class="muted">位置、面积、楼龄较均衡，重点砍清隐藏月额项。</span>`,
-        sumikawa: `<span class="good-text">空间第一</span><br><span class="muted">如果旧楼状态能接受，这套住起来最不憋屈。</span>`,
-        reine: `<span class="warn-text">低月费备选</span><br><span class="muted">位置方便但面积小，洗衣机位和清扫费要确认。</span>`,
-        relief: `<span class="good-text">新追加中位</span><br><span class="muted">网络免费和面积不错，主要看旧楼状态。</span>`,
-        sunmelt: `<span class="warn-text">低月费但小</span><br><span class="muted">月费漂亮，木造2楼和初期附加项要谨慎。</span>`,
-        pure: `<span class="risk-text">初期费过重</span><br><span class="muted">位置好，但签约时现金压力最大。</span>`
+        japan: `<span class="good-text">综合第一</span><br><span class="muted">位置、面积、初期都好，先确认保证费。</span>`,
+        asahi: `<span class="good-text">低月费</span><br><span class="muted">六本松3分很强，礼金和清扫费口径要问。</span>`,
+        royal: `<span class="good-text">空间均衡</span><br><span class="muted">22㎡够住，保证费区间决定最终初期。</span>`,
+        actus: `<span class="warn-text">位置强但贵</span><br><span class="muted">呉服町5分，高层；月费和面积不占优。</span>`,
+        east: `<span class="warn-text">面积好但初期重</span><br><span class="muted">24.89㎡不错，礼金和清扫费拉高初期。</span>`,
+        regarita: `<span class="warn-text">月额项多</span><br><span class="muted">ロフト有趣，但小费用和距离要确认。</span>`,
+        sakurazaka: `<span class="good-text">低初期候选</span><br><span class="muted">桜坂3分，清扫费前払い与否很关键。</span>`
       };
       return map[id];
     }
